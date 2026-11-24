@@ -1,0 +1,26 @@
+[package]
+name = "fastpath-security"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Stateless address validation, anti-amplification and secure connection migration for a datagram transport"
+license = "MIT OR Apache-2.0"
+repository = "https://example.invalid/fastpath-security"
+keywords = ["quic", "address-validation", "anti-amplification", "migration", "security"]
+categories = ["network-programming", "cryptography"]
+
+[dependencies]
+aes-gcm-siv = { version = "0.11.1", default-features = false, features = ["aes", "alloc"] }
+getrandom = "0.2.17"
+hkdf = "0.12.4"
+sha2 = "0.10.9"
+subtle = "2.6.1"
+thiserror = "1.0.69"
+zeroize = { version = "1.9", features = ["derive"] }
+
+[dev-dependencies]
+hex = "0.4.3"
+
+[profile.release]
+debug = true
+overflow-checks = true
